@@ -263,8 +263,8 @@ jobs:
           
           # Email details
           subject: "QA Test Workflow Result for ${{ github.repository }}"
-          to: Github-Action-Blueprint-QA@nvidia.com
-          from: github-workflow-notification@gmail.com
+          to: vphuc@nvidia.com
+          from: nhuphuc1602@gmail.com
           html_body: |
             <p>Hello,</p>
             
