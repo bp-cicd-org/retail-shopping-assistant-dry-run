@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   run-nim-notebooks:
-    runs-on: arc-runners-org-nvidia-ai-bp-4-gpu
+    runs-on: arc-runner-set-oke-org-poc-4-gpu
     env:
       PYTHON_VERSION: 3.12
       NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
