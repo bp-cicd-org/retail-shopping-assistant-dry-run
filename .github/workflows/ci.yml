@@ -155,7 +155,17 @@ jobs:
 
       - name: Run Test Code
         if: always()
-        run: |   
+        env:
+          TEST_DOCKER_PULL_KEY: ${{ secrets.NGC_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${TEST_DOCKER_PULL_KEY:-}" ]; then
+            echo "Skipping Run Test Code: repository secret TEST_DOCKER_PULL_KEY is not set."
+            exit 0
+          fi
+          echo "======================================="
+          echo "${TEST_DOCKER_PULL_KEY}" | docker login nvcr.io --username '$oauthtoken' --password-stdin
+
           # Wait for services to stabilize
           echo "Waiting 5 minutes for services to fully stabilize..."
           sleep 600
