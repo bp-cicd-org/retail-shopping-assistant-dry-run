@@ -156,7 +156,7 @@ jobs:
       - name: Run Test Code
         if: always()
         env:
-          TEST_DOCKER_PULL_KEY: ${{ secrets.NGC_API_KEY }}
+          TEST_DOCKER_PULL_KEY: ${{ secrets.TEST_DOCKER_PULL_KEY }}
         run: |
           set -euo pipefail
           if [ -z "${TEST_DOCKER_PULL_KEY:-}" ]; then
